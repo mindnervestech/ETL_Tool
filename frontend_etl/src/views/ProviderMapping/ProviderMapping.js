@@ -77,7 +77,7 @@ class ProviderMapping extends React.Component {
   }
 
   componentDidMount() {
-      fetch('http://localhost:8080/getProvidersFTP', {
+      fetch('http://139.162.5.110:8080/getProvidersFTP', {
         method: 'GET'
     }).then(function(res1) {
       if (!res1.ok) {
@@ -138,7 +138,7 @@ class ProviderMapping extends React.Component {
       formData.append('filename', this.state.selectedProviderFile);
       formData.append('mapping', JSON.stringify(this.state.mapping));
 
-      fetch('http://localhost:8080/savemapping', {
+      fetch('http://139.162.5.110:8080/savemapping', {
         method: 'POST',
         body: formData 
       })
@@ -158,7 +158,7 @@ class ProviderMapping extends React.Component {
 
         // fetch the form headers for the file
         // '\' is used to divide template literal over several lines
-        fetch('http://localhost:8080/getMappingData?provider=' +
+        fetch('http://139.162.5.110:8080/getMappingData?provider=' +
           self.state.selectedProvider + '&filename=' + 
           self.state.selectedProviderFile, {
           method: 'GET'
